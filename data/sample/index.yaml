@@ -1,0 +1,26 @@
+# Sample task index — shareable demo data for capta-planner.
+# Schema: task-schema.json. See docs/README.md and docs/AI_TASK_INDEX_GUIDE.md.
+tasks:
+  - id: 1
+    title: Example task (todo)
+    summary: A sample task to show the planner UI. Edit in data/sample/details/.
+    status: todo
+    priority: high
+    area: demo
+    app: demo
+    project: sample
+    details: details/1-example-task.md
+    tags:
+      - sample
+      - demo
+  - id: 2
+    title: Another example (in progress)
+    summary: Second task to demonstrate filters and triage.
+    status: in_progress
+    priority: normal
+    area: docs
+    app: demo
+    project: sample
+    details: details/2-another-example.md
+    tags:
+      - sample

@@ -1,0 +1,21 @@
+# Capta Planner
+#
+# Runs the planner app and mounts your data directory.
+# For auto-sync, use the docker-compose.yml in your capta-planner-data repo instead.
+#
+# Setup:
+# 1. Set PLANNER_DATA_PATH to your data directory (default: ../capta-planner-data)
+# 2. Start: docker compose up -d
+
+services:
+  planner:
+    build:
+      context: ..
+      dockerfile: capta-planner/Dockerfile
+    ports:
+      - "3333:3333"
+    environment:
+      PLANNER_DATA_DIR: /data
+    volumes:
+      - ${PLANNER_DATA_PATH:-../capta-planner-data}:/data
+    restart: unless-stopped

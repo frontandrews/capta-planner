@@ -1,0 +1,157 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+	--foreground: oklch(0.041 0.002 314);
+	--background: oklch(1 0 0);
+	--card-foreground: oklch(0.132 0.024 254);
+	--card: oklch(1 0 0);
+	--popover-foreground: oklch(0.132 0.024 254);
+	--popover: oklch(1 0 0);
+	--primary: oklch(0.041 0.002 314);
+	--primary-foreground: oklch(1 0 0);
+	--secondary: oklch(0.585 0.132 257);
+	--secondary-foreground: oklch(0.041 0.002 314);
+	--muted: oklch(0.15 0.03 50 / 0.08);
+	--muted-foreground: oklch(0.369 0.005 300);
+	--accent: oklch(0.96 0.01 320);
+	--accent-foreground: oklch(0.08 0.02 290);
+	--destructive: oklch(0.604 0.191 22.216);
+	--border: oklch(0.98 0 0);
+	--input: oklch(0.916 0.002 300);
+	--ring: oklch(0.84 0.01 50);
+}
+
+.dark {
+	--foreground: oklch(1 0 0);
+	--background: oklch(0.095 0.002 314);
+	--card-foreground: oklch(1 0 0);
+	--card: oklch(0.108 0 0);
+	--popover-foreground: oklch(1 0 0);
+	--popover: oklch(0.108 0 0);
+	--primary: oklch(1 0 0);
+	--primary-foreground: oklch(0.041 0.002 314);
+	--secondary: oklch(0.585 0.132 257);
+	--secondary-foreground: oklch(1 0 0);
+	--muted: oklch(0.15 0.03 50 / 0.12);
+	--muted-foreground: oklch(0.691 0.005 300);
+	--accent: oklch(0.15 0.01 320);
+	--accent-foreground: oklch(0.92 0.02 290);
+	--destructive: oklch(0.704 0.191 22.216);
+	--border: oklch(0.173 0 0);
+	--input: oklch(0.298 0 0);
+	--ring: oklch(0.24 0.01 50);
+}
+
+@theme inline {
+	--radius: 0.625rem;
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--font-sans: var(--font-geist-sans);
+	--font-mono: var(--font-geist-mono);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-border: var(--border);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-destructive: var(--destructive);
+	--radius-sm: calc(var(--radius) - 4px);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+	* {
+		border-color: var(--color-border);
+	}
+}
+
+body {
+	background: var(--background);
+	color: var(--foreground);
+}
+
+/* MDXEditor: ensure content area uses theme colors when .dark is on html */
+.dark .mdxeditor {
+	--basePageBg: var(--color-background);
+	--baseBase: var(--color-input);
+	--baseBgSubtle: var(--color-input);
+	--baseBg: var(--color-input);
+	--baseBgHover: var(--color-accent);
+	--baseBgActive: var(--color-accent);
+	--baseLine: var(--color-border);
+	--baseBorder: var(--color-border);
+	--baseBorderHover: var(--color-border);
+	--baseSolid: var(--color-muted-foreground);
+	--baseSolidHover: var(--color-foreground);
+	--baseText: var(--color-foreground);
+	--baseTextContrast: var(--color-foreground);
+}
+
+.dark .mdxeditor [contenteditable="true"] {
+	background-color: var(--color-input) !important;
+	color: var(--color-foreground) !important;
+}
+
+/* Fancy scroll: one utility for native overflow + global Radix scrollbar styling in tasks */
+@layer utilities {
+	.scroll-fancy {
+		scrollbar-width: thin;
+		scrollbar-color: #d3d3d3 transparent;
+	}
+
+	.scroll-fancy::-webkit-scrollbar {
+		width: 6px;
+		height: 8px;
+	}
+
+	.scroll-fancy::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.scroll-fancy::-webkit-scrollbar-thumb {
+		background: #d3d3d3;
+		border-radius: 9999px;
+	}
+
+	.scroll-fancy::-webkit-scrollbar-thumb:hover {
+		background: var(--color-muted-foreground);
+	}
+}
+
+/* Radix ScrollArea: fancy track and thumb (all scroll areas in tasks) */
+[data-slot="scroll-area-scrollbar"] {
+	border: none;
+	border-radius: 9999px;
+	background: transparent;
+	padding: 0.125rem;
+}
+
+[data-slot="scroll-area-thumb"] {
+	border-radius: 9999px;
+	background: #d3d3d3;
+	transition: background 0.15s ease;
+	min-height: 2rem;
+	min-width: 2rem;
+}
+
+[data-slot="scroll-area-thumb"]:hover {
+	background: var(--color-muted-foreground);
+}
+
+[data-slot="scroll-area-thumb"]:active {
+	background: var(--color-muted-foreground);
+}

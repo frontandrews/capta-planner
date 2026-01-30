@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build / Next
+.next/
+out/
+*.tsbuildinfo
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Your task data — keep out of the repo so the planner stays shareable
+# Repo ships with data/sample (demo data) by default
+data/tasks/
+
+# Optional: per-project data (uncomment and add your project dirs)
+# data/projects/portfolio-2026/
+# data/projects/capta-core/
+
+# Docker: local clone of your private planner data (mounted by compose)
+# This is a SEPARATE git repo that the sync service auto-commits to
+capta-planner-data/
+
+# Docker environment file (contains your git user info)
+.env
