@@ -1,6 +1,6 @@
 # Capta Planner
 
-Task list and planning app — **YAML-backed** index, per-task details, and schema. **Portfolio-friendly:** the app and demo data are shareable; your real task data can stay local (gitignored).
+Task list and planning app — **YAML-backed** index, per-task details, and schema. Designed for humans and AI to organize next steps and project tasks from structured YAML.
 
 ## What it is
 
@@ -15,26 +15,7 @@ pnpm install
 pnpm dev
 ```
 
-Open http://localhost:3333. The app uses **`data/sample/`** by default (shareable demo). To use **your data** from **capta-planner-data**: set **`PLANNER_DATA_DIR=/path/to/capta-planner-data`** (absolute path to your clone), then run `pnpm dev`. Alternatively use **`PLANNER_DATA_DIR=data/tasks`** for a gitignored dir inside this repo.
-
-## Docker
-
-Run the planner in Docker with your task data mounted from a local directory or separate repo. See **`docs/DOCKER.md`** for setup.
-
-**Important:** `capta-planner-data/` is a **separate git repository** for your private task data. It is NOT part of capta-planner repo.
-
-```bash
-# 1. Create a private repo on GitHub (e.g., github.com/you/capta-planner-data)
-# 2. Clone it: git clone git@github.com:you/capta-planner-data.git capta-planner-data
-# 3. Initialize with demo data: cp -r data/sample/* capta-planner-data/
-# 4. Set up git in capta-planner-data/:
-#    cd capta-planner-data && git add . && git commit -m "Initial task data" && git push && cd ..
-# 5. Configure environment: cp .env.docker.example .env && edit .env
-# 6. Start services:
-docker compose up -d
-```
-
-**Data flow:** Your edits in the UI are saved to **capta-planner-data/** (mounted at `/data`). The app reads and writes the **capta-planner-data** directory; ensure that dir exists and is your data repo clone (see steps above).
+Open http://localhost:3333. The app uses **`data/sample/`** by default (shareable demo). To use **your data**, point the app to any folder you choose: set **`PLANNER_DATA_DIR=/path/to/your/tasks`** (absolute path), then run `pnpm dev`. You can later store that folder on a drive, sync it, or back it up however you prefer. Alternatively use **`PLANNER_DATA_DIR=data/tasks`** for a gitignored dir inside this repo.
 
 ## Docs
 
