@@ -67,7 +67,7 @@ The tasks derived from this plan are added to `index.yaml` with `project: tasks-
 |----------|-------------|
 | **completed_date** | Add to task-schema.json and Task type; set in PATCH when status → done (optional). |
 | **Validate index on read** | Validate parsed index.yaml against task-schema.json in GET /api/tasks (or a dedicated validation route); log or return validation errors. |
-| **Per-project index (optional)** | If task 31 decides to split: support per-project YAML (e.g. `index/copylume.yaml`, `index/tasks-app.yaml`) and merge or filter in API. |
+| **Per-project index (optional)** | If task 31 decides to split: support per-project YAML (e.g. `index/primary-app.yaml`, `index/tasks-app.yaml`) and merge or filter in API. |
 
 **Tasks in index.yaml:** completed_date; validate index on read; implement per-project index only if decided in 31.
 
@@ -79,7 +79,7 @@ The tasks derived from this plan are added to `index.yaml` with `project: tasks-
 |----------|-------------|
 | **Create task from UI** | Form: title, summary, project, app, area, priority. API: POST /api/tasks — compute next id, append to index.yaml, optionally create details file from template. |
 | **Search** | Full-text search on title + summary in UI (client-side or API). Optional: include Notes from details files (would require indexing or reading details in API). |
-| **Saved views / quick filters** | Allow saving a named filter set (e.g. “Copylume high priority”) for one-click apply. Could be localStorage or a small config file. |
+| **Saved views / quick filters** | Allow saving a named filter set (e.g. “Primary app high priority”) for one-click apply. Could be localStorage or a small config file. |
 
 **Tasks in index.yaml:** Create task from UI; Search (title/summary); Saved views (optional).
 
@@ -129,7 +129,7 @@ The concrete tasks from this plan are added to `index.yaml` with `project: tasks
 | Proposal | Description |
 |----------|-------------|
 | **Deep link to task** | URL param e.g. `?task=32` so Cursor, docs, or PRs can link to a specific task; on load open detail panel if task exists. |
-| **Persist filters in URL** | Store status/project/area etc. in query string (`?status=todo&project=copylume`) for shareable links and back/forward. |
+| **Persist filters in URL** | Store status/project/area etc. in query string (`?status=todo&project=primary-app`) for shareable links and back/forward. |
 | **Copy as markdown** | Button to copy current task (or filtered list) as markdown for pasting into PR description or docs. |
 | **Open details in editor** | Link from UI to open the task’s details file in VS Code/Cursor (e.g. `vscode://` or `cursor://` with file path). |
 | **created_date convention** | Document in README: when adding a new task, set `created_date` with current ISO time, e.g. `date -Iseconds` or `date +"%Y-%m-%dT%H:%M:%S%z"`. |

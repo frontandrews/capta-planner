@@ -15,7 +15,6 @@ Before proposing new tasks, get context so tickets target real improvements:
 | **Initial product plan** | `docs/technical/INITIAL_PLAN.md` |
 | **Code snippets & reference** | `docs/technical/APPENDIX_SNIPPETS.md` |
 | **Task index (structure, fields)** | `docs/technical/tasks/AI_TASK_INDEX_GUIDE.md` |
-| **Product scope (Copylume)** | `docs/technical/tasks/PLAN_COPYLUME.md` |
 | **Tasks-app scope** | `docs/technical/tasks/PLAN_TASKS_APP.md` |
 
 **Codebase layout:** `apps/web`, `apps/api`, `apps/tasks`, `apps/demo`; shared code in `packages/`. Use `area` and `app` when creating tasks so they target the right place.
@@ -27,7 +26,7 @@ Before proposing new tasks, get context so tickets target real improvements:
 - **Improves the app:** Fixes a bug, adds a feature, improves UX, security, performance, or maintainability.
 - **Scoped:** One clear outcome; not a multi-epic blob.
 - **Actionable:** Someone (or AI) can implement it; optional details file makes this explicit (acceptance criteria, implementation steps).
-- **Placed correctly:** `project` (copylume / tasks-app), `app` (web, api, tasks, etc.), `area`, and optional `related` so it fits the backlog.
+- **Placed correctly:** `project` (primary-app / tasks-app), `app` (web, api, tasks, etc.), `area`, and optional `related` so it fits the backlog.
 
 ---
 
@@ -62,7 +61,7 @@ Use this when you want an AI to **create new tickets** that add value and improv
 ```
 Create new tickets that add value and improve the app.
 
-1. **Context:** Read docs/technical/tasks/TASK_ORIENTATION.md and, for product scope, docs/technical/tasks/PLAN_COPYLUME.md and/or docs/technical/tasks/PLAN_TASKS_APP.md. Understand the codebase (apps/web, api, tasks; packages/) so tasks target the right area and app.
+1. **Context:** Read docs/technical/tasks/TASK_ORIENTATION.md and, for product scope, docs/technical/tasks/PLAN_TASKS_APP.md. Understand the codebase (apps/web, api, tasks; packages/) so tasks target the right area and app.
 
 2. **Index:** Add each new task to docs/technical/tasks/index.yaml. Use the next free id (max existing + 1). Required fields: id, title, status, priority, area. Also add summary, project, app, created_date; optionally details, related, tags. Use only fields from docs/technical/tasks/task-schema.json.
 

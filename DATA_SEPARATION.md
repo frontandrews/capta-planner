@@ -34,9 +34,9 @@ pnpm dev
 
 **Important:** `data/tasks/` is gitignored and never pushed to this repo.
 
-### Mode 2: Docker with Auto-Sync
+### Mode 2: Docker with Auto-Sync (recommended for your real data)
 
-Your data lives in a **separate private git repo** cloned as `capta-planner-data/`:
+Your data lives in **capta-planner-data/** — a **separate private git repo** cloned next to capta-planner (or anywhere; set `PLANNER_DATA_PATH` to its path). The app reads and writes this directory; Docker mounts it at `/data` by default.
 
 ```bash
 # 1. Create private repo on GitHub

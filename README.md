@@ -5,7 +5,7 @@ Task list and planning app — **YAML-backed** index, per-task details, and sche
 ## What it is
 
 - **Planner UI** — Next.js app: table view, filters (status, priority, project, app, area), triage board, task detail panel with MDX editor.
-- **Data** — Default: **`data/sample/`** (in repo, demo data). For your own tasks use **`data/tasks/`** or **`data/projects/<name>/`** and set **`PLANNER_DATA_DIR`**; keep that dir out of git so you don’t expose your index. See **`docs/DATA_ORGANIZATION.md`**.
+- **Data** — Default: **`data/sample/`** (in repo, demo data). For your own tasks use **`capta-planner-data/`** (separate repo) via **`PLANNER_DATA_DIR=/path/to/capta-planner-data`** or Docker; keep that dir out of git so you don’t expose your index. See **`docs/DATA_ORGANIZATION.md`**.
 - **API** — `GET /api/tasks`, `PATCH /api/tasks/[id]`, `GET/PUT /api/tasks/details/[...path]`, `POST /api/tasks/details/new`, `GET /api/tasks/events` (SSE refresh in dev).
 
 ## Quick start
@@ -15,7 +15,7 @@ pnpm install
 pnpm dev
 ```
 
-Open http://localhost:3333. The app uses **`data/sample/`** by default (shareable demo). To use your own data: set **`PLANNER_DATA_DIR=data/tasks`** (or `data/projects/my-project`) and add that dir to **`.gitignore`**.
+Open http://localhost:3333. The app uses **`data/sample/`** by default (shareable demo). To use **your data** from **capta-planner-data**: set **`PLANNER_DATA_DIR=/path/to/capta-planner-data`** (absolute path to your clone), then run `pnpm dev`. Alternatively use **`PLANNER_DATA_DIR=data/tasks`** for a gitignored dir inside this repo.
 
 ## Docker (app + auto-sync)
 
@@ -34,7 +34,7 @@ Run the planner and a **sync sidecar** that auto-pushes your task data to a **se
 docker compose up -d
 ```
 
-**Data flow:** Your edits in the UI → saved to `capta-planner-data/` → sync service auto-commits & pushes → your private repo
+**Data flow:** Your edits in the UI → saved to **capta-planner-data/** (mounted at `/data`) → sync service auto-commits & pushes → your private repo. The app reads and writes the **capta-planner-data** directory; ensure that dir exists and is your data repo clone (see steps above).
 
 ## Docs
 
@@ -43,7 +43,3 @@ docker compose up -d
 - **`docs/AI_TASK_INDEX_GUIDE.md`** — Entry point for AI: how to approach the index (review, add, implement).
 - **`docs/TASK_ORIENTATION.md`** — Creating new tickets and details files.
 - **`docs/CLARITY_SCORE.md`** — clarity_score (0–100) and when to set it.
-
-## Migration from Copylume
-
-The task app previously lived in **`copylume/apps/tasks`** and read from **`copylume/docs/technical/tasks/`**. It is now **capta-planner**. Default data is **`data/sample/`** (shareable). Your own data: use **`data/tasks/`** or **`data/projects/<name>/`**, set **`PLANNER_DATA_DIR`**, and add that dir to **`.gitignore`** so your index is not exposed.

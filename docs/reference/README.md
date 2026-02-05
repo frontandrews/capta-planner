@@ -6,4 +6,4 @@ This folder is for **reference only**. Older tasks in `index.yaml` may have an `
 - **NEXT_STEPS_BY_AREA.md** — `../../NEXT_STEPS_BY_AREA.md`
 - **NEXT_STEPS.md** — `../../NEXT_STEPS.md`
 
-New tasks should use **project** (e.g. `project: copylume` or `project: tasks-app`) and **details/** markdown files instead of appendix refs. See `../README.md` for the current task system.
+New tasks should use **project** (e.g. `project: primary-app` or `project: tasks-app`) and **details/** markdown files instead of appendix refs. See `../README.md` for the current task system.

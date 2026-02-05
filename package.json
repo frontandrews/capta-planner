@@ -2,7 +2,7 @@
 	"name": "capta-planner",
 	"version": "0.1.0",
 	"private": true,
-	"description": "Task list and planning app — YAML-backed index, details, and triage. Decoupled from Copylume.",
+	"description": "Task list and planning app — YAML-backed index, details, and triage. Standalone and internal by default.",
 	"scripts": {
 		"dev": "next dev --webpack -p 3333",
 		"build": "next build --webpack",

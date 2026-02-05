@@ -10,17 +10,18 @@ Run the planner in Docker with a **sync sidecar** that watches your task data an
 
 ## Setup
 
-1. Create a private repo (e.g. `planner-data`) and clone it:
+1. Create a private repo named **capta-planner-data** and clone it (e.g. next to capta-planner):
 
    ```bash
-   git clone git@github.com/you/planner-data.git planner-data
+   gh repo create your-username/capta-planner-data --private
+   git clone git@github.com:your-username/capta-planner-data.git capta-planner-data
    ```
 
 2. Copy sample structure into the clone (so you have `index.yaml`, `task-schema.json`, `details/`):
 
    ```bash
-   cp -r data/sample/* planner-data/
-   cd planner-data && git add -A && git commit -m "init from sample" && git push
+   cp -r capta-planner/data/sample/* capta-planner-data/
+   cd capta-planner-data && git add -A && git commit -m "init from sample" && git push
    ```
 
 3. From **capta-planner** directory (or repo root with `-f capta-planner/docker-compose.yml`):
@@ -42,7 +43,7 @@ Run the planner in Docker with a **sync sidecar** that watches your task data an
 
 | Env | Default | Purpose |
 |-----|---------|--------|
-| `PLANNER_DATA_PATH` | `./planner-data` | Host path to your git clone (mounted at `/data`). |
+| `PLANNER_DATA_PATH` | `../capta-planner-data` | Host path to your **capta-planner-data** clone (mounted at `/data`). Run compose from capta-planner so this path resolves. |
 | `GIT_USER_NAME` | Planner Sync | Git `user.name` for sync commits. |
 | `GIT_USER_EMAIL` | sync@localhost | Git `user.email` for sync commits. |
 | `SSH_DIR` | `$HOME/.ssh` | Mounted into sync so `git push` can use SSH. |

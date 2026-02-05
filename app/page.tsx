@@ -209,7 +209,7 @@ export default function TasksPage() {
 
 	return (
 		<div className="min-h-screen bg-background">
-			<div className="mx-auto max-w-[1600px] px-4 py-6 sm:px-6 lg:px-8">
+			<div className="mx-auto max-w-400 px-4 py-6 sm:px-6 lg:px-8">
 				<header className="mb-6 flex items-start justify-between gap-4">
 					<div>
 						<h1 className="text-2xl font-semibold tracking-tight text-foreground">
@@ -306,7 +306,7 @@ export default function TasksPage() {
 				<Card className="mb-4">
 					<CardContent className="px-4">
 						<div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-							<span className="flex items-center gap-2 text-sm font-medium text-[var(--color-muted-foreground)]">
+							<span className="flex items-center gap-2 text-sm font-medium text-(--color-muted-foreground)">
 								Filters
 							</span>
 							<span className="flex items-center gap-2 text-sm">
@@ -315,7 +315,7 @@ export default function TasksPage() {
 										<Button
 											variant="outline"
 											size="sm"
-											className="h-8 gap-1.5 min-w-[100px]"
+											className="h-8 gap-1.5 min-w-25"
 										>
 											Status
 											{statusFilter.length > 0 && (
@@ -327,7 +327,7 @@ export default function TasksPage() {
 									</DropdownMenuTrigger>
 									<DropdownMenuContent
 										align="start"
-										className="w-48 max-h-[280px] overflow-y-auto scroll-fancy"
+										className="w-48 max-h-70 overflow-y-auto scroll-fancy"
 									>
 										<DropdownMenuLabel>Filter by status</DropdownMenuLabel>
 										{STATUS_OPTIONS.map((s) => (
@@ -354,7 +354,7 @@ export default function TasksPage() {
 										<Button
 											variant="outline"
 											size="sm"
-											className="h-8 gap-1.5 min-w-[100px]"
+											className="h-8 gap-1.5 min-w-25"
 										>
 											Priority
 											{priorityFilter.length > 0 && (
@@ -366,7 +366,7 @@ export default function TasksPage() {
 									</DropdownMenuTrigger>
 									<DropdownMenuContent
 										align="start"
-										className="w-40 max-h-[280px] overflow-y-auto scroll-fancy"
+										className="w-40 max-h-70 overflow-y-auto scroll-fancy"
 									>
 										<DropdownMenuLabel>Filter by priority</DropdownMenuLabel>
 										{PRIORITY_OPTIONS.map((p) => (
@@ -393,7 +393,7 @@ export default function TasksPage() {
 										<Button
 											variant="outline"
 											size="sm"
-											className="h-8 gap-1.5 min-w-[90px]"
+											className="h-8 gap-1.5 min-w-22.5"
 										>
 											Area
 											{areaFilter.length > 0 && (
@@ -405,7 +405,7 @@ export default function TasksPage() {
 									</DropdownMenuTrigger>
 									<DropdownMenuContent
 										align="start"
-										className="w-40 max-h-[280px] overflow-y-auto scroll-fancy"
+										className="w-40 max-h-70 overflow-y-auto scroll-fancy"
 									>
 										<DropdownMenuLabel>Filter by area</DropdownMenuLabel>
 										{areas.map((a) => (
@@ -432,7 +432,7 @@ export default function TasksPage() {
 										<Button
 											variant="outline"
 											size="sm"
-											className="h-8 gap-1.5 min-w-[80px]"
+											className="h-8 gap-1.5 min-w-20"
 										>
 											App
 											{appFilter.length > 0 && (
@@ -444,7 +444,7 @@ export default function TasksPage() {
 									</DropdownMenuTrigger>
 									<DropdownMenuContent
 										align="start"
-										className="w-40 max-h-[280px] overflow-y-auto scroll-fancy"
+										className="w-40 max-h-70 overflow-y-auto scroll-fancy"
 									>
 										<DropdownMenuLabel>Filter by app</DropdownMenuLabel>
 										{apps.map((a) => (
@@ -471,7 +471,7 @@ export default function TasksPage() {
 										<Button
 											variant="outline"
 											size="sm"
-											className="h-8 gap-1.5 min-w-[90px]"
+											className="h-8 gap-1.5 min-w-22.5"
 										>
 											Project
 											{projectFilter.length > 0 && (
@@ -483,7 +483,7 @@ export default function TasksPage() {
 									</DropdownMenuTrigger>
 									<DropdownMenuContent
 										align="start"
-										className="w-40 max-h-[280px] overflow-y-auto scroll-fancy"
+										className="w-40 max-h-70 overflow-y-auto scroll-fancy"
 									>
 										<DropdownMenuLabel>Filter by project</DropdownMenuLabel>
 										{projects.map((p) => (
@@ -523,7 +523,7 @@ export default function TasksPage() {
 										</DropdownMenuTrigger>
 										<DropdownMenuContent
 											align="start"
-											className="w-48 max-h-[280px] overflow-y-auto scroll-fancy"
+											className="w-48 max-h-70 overflow-y-auto scroll-fancy"
 										>
 											<DropdownMenuLabel>Filter by tag</DropdownMenuLabel>
 											{allTags.map((tag) => (
@@ -580,7 +580,7 @@ export default function TasksPage() {
 				{loading ? (
 					<Card>
 						<CardContent className="flex items-center justify-center py-12">
-							<p className="text-sm text-[var(--color-muted-foreground)]">
+							<p className="text-sm text-(--color-muted-foreground)">
 								Loading…
 							</p>
 						</CardContent>

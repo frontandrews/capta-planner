@@ -20,7 +20,7 @@ export interface Task {
 	area: string;
 	/** Which app the task primarily belongs to (web, api, tasks, demo, packages, infra, etc.) */
 	app?: string;
-	/** Project scope: e.g. "copylume" (main), "tasks-app" (improvements to this task app) */
+	/** Project scope: e.g. "primary-app" (main), "tasks-app" (improvements to this task app) */
 	project?: string;
 	/** Legacy: refs to NEXT_STEPS_PLAN / NEXT_STEPS_BY_AREA. Prefer details/ and project instead. */
 	appendix?: string;

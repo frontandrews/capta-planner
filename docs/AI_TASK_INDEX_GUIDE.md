@@ -22,7 +22,7 @@ This document is the **entry point** for AI (e.g. Cursor) when working with task
 
 | Goal | What to do |
 |------|-------------|
-| **Pick next task** | Filter `index.yaml` by `status: todo` or `in_progress`; sort by `priority` (high first). Optionally filter by `project` (copylume / tasks-app) or `app` (web, api, tasks, etc.). Prefer tasks with a `details` path and higher `clarity_score` when you want a clear implementation path. |
+| **Pick next task** | Filter `index.yaml` by `status: todo` or `in_progress`; sort by `priority` (high first). Optionally filter by `project` (primary-app / tasks-app) or `app` (web, api, tasks, etc.). Prefer tasks with a `details` path and higher `clarity_score` when you want a clear implementation path. |
 | **Review a task** | Open the task in the index; if it has `details: details/<id>-<slug>.md`, read that file first (Summary, Acceptance criteria, Implementation steps, Gaps / unknowns). Use `related` to open linked tasks. Check `clarity_score` and update it after reading the details (see [Refining tasks](#4-how-to-refine-tasks)). |
 | **Add a new task** | Choose next free `id` (max existing + 1). Append one entry to `index.yaml` with required fields: `id`, `title`, `status`, `priority`, `area`. Add `summary`, `project`, `app`, `created_date` (e.g. `date -Iseconds`), and optionally `details`, `related`, `tags`. Validate against `task-schema.json`. Optionally create a details file from `details/_template.md` and set `details: details/<id>-<slug>.md`. |
 | **Start implementation** | Set the task’s `status` to `in_progress` in `index.yaml`. Read the task’s **details file** (if present); follow Implementation steps and Acceptance criteria. Open any `related` task details for context. |
@@ -41,8 +41,7 @@ This document is the **entry point** for AI (e.g. Cursor) when working with task
 | **`README.md`** (this folder) | Overview of the task system, fields, and workflow. |
 | **`CLARITY_SCORE.md`** | When evaluating or setting `clarity_score`. Explains 0–100, "Gaps / unknowns (why not 100)", and how to improve clarity. |
 | **`PLAN_TASKS_APP.md`** | When adding or understanding tasks with `project: tasks-app`. Feature plan for the tasks app. |
-| **`PLAN_COPYLUME.md`** | When adding or understanding tasks with `project: copylume`. Feature plan for the main product. |
-| **`projects/*.md`** | Optional. One doc per project (e.g. copylume, tasks-app) for scope and context. |
+| **`projects/*.md`** | Optional. One doc per project (e.g. primary-app, tasks-app) for scope and context. |
 | **`reference/README.md`** | Legacy. Where old appendix refs (NEXT_STEPS_PLAN, etc.) pointed. |
 | **Session rules** | Align with index, details, clarity_score, completion note as in this guide. |
 | **`TASK_ORIENTATION.md`** | Orientation: create new tickets that add value and improve the app; optionally create implementation details (details file) for each. |

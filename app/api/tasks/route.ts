@@ -6,26 +6,49 @@ import { parse } from "yaml";
 type TaskEntry = { id: number; details?: string; [key: string]: unknown };
 
 function enrichDetails(tasksDir: string, tasks: TaskEntry[]): TaskEntry[] {
-	const detailsDir = join(tasksDir, "details");
-	if (!existsSync(detailsDir)) return tasks;
-	const files = readdirSync(detailsDir);
-	const byId = new Map<number, string>();
-	for (const f of files) {
-		const match = /^(\d+)-.+\.md$/.exec(f);
-		if (match) byId.set(Number(match[1]), `details/${f}`);
-	}
-	return tasks.map((t) => {
-		if (t.details) return t;
-		const path = byId.get(t.id);
-		return path ? { ...t, details: path } : t;
-	});
+  const detailsDir = join(tasksDir, "details");
+  if (!existsSync(detailsDir)) return tasks;
+  const files = readdirSync(detailsDir);
+  const byId = new Map<number, string>();
+  for (const f of files) {
+    const match = /^(\d+)-.+\.md$/.exec(f);
+    if (match) byId.set(Number(match[1]), `details/${f}`);
+  }
+  return tasks.map((t) => {
+    if (t.details) return t;
+    const path = byId.get(t.id);
+    return path ? { ...t, details: path } : t;
+  });
 }
 
 export async function GET() {
-	const tasksDir = getTasksDir();
-	const yamlPath = join(tasksDir, "index.yaml");
-	const raw = readFileSync(yamlPath, "utf8");
-	const { tasks } = parse(raw) as { tasks: TaskEntry[] };
-	const enriched = enrichDetails(tasksDir, tasks ?? []);
-	return Response.json({ tasks: enriched });
+  try {
+    const tasksDir = getTasksDir();
+    const yamlPath = join(tasksDir, "index.yaml");
+    const raw = readFileSync(yamlPath, "utf8");
+    const { tasks } = parse(raw) as { tasks: TaskEntry[] };
+    const enriched = enrichDetails(tasksDir, tasks ?? []);
+    return Response.json({ tasks: enriched });
+  } catch (error) {
+    console.error("Failed to load tasks:", error);
+
+    // Provide helpful error message
+    if (error instanceof Error) {
+      const message = error.message;
+      const yamlError = message.includes("line")
+        ? `YAML parsing error: ${message}\n\nTip: Check for unquoted strings with special characters (colons, semicolons, etc.)`
+        : message;
+
+      return Response.json(
+        {
+          error: "Failed to load tasks",
+          details: yamlError,
+          tasksDir: getTasksDir(),
+        },
+        { status: 500 },
+      );
+    }
+
+    return Response.json({ error: "Failed to load tasks" }, { status: 500 });
+  }
 }

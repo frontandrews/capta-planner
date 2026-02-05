@@ -56,7 +56,7 @@
 		},
 		"project": {
 			"type": "string",
-			"description": "Project name (e.g. sample, copylume, capta-core)."
+			"description": "Project name (e.g. sample, primary-app, internal-tooling)."
 		},
 		"appendix": {
 			"type": "string",
