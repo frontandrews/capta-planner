@@ -17,9 +17,9 @@ pnpm dev
 
 Open http://localhost:3333. The app uses **`data/sample/`** by default (shareable demo). To use **your data** from **capta-planner-data**: set **`PLANNER_DATA_DIR=/path/to/capta-planner-data`** (absolute path to your clone), then run `pnpm dev`. Alternatively use **`PLANNER_DATA_DIR=data/tasks`** for a gitignored dir inside this repo.
 
-## Docker (app + auto-sync)
+## Docker
 
-Run the planner and a **sync sidecar** that auto-pushes your task data to a **separate private repo** (debounced 60s after last change). See **`docs/DOCKER.md`** for setup.
+Run the planner in Docker with your task data mounted from a local directory or separate repo. See **`docs/DOCKER.md`** for setup.
 
 **Important:** `capta-planner-data/` is a **separate git repository** for your private task data. It is NOT part of capta-planner repo.
 
@@ -29,12 +29,12 @@ Run the planner and a **sync sidecar** that auto-pushes your task data to a **se
 # 3. Initialize with demo data: cp -r data/sample/* capta-planner-data/
 # 4. Set up git in capta-planner-data/:
 #    cd capta-planner-data && git add . && git commit -m "Initial task data" && git push && cd ..
-# 5. Configure sync: cp .env.docker.example .env && edit .env
+# 5. Configure environment: cp .env.docker.example .env && edit .env
 # 6. Start services:
 docker compose up -d
 ```
 
-**Data flow:** Your edits in the UI → saved to **capta-planner-data/** (mounted at `/data`) → sync service auto-commits & pushes → your private repo. The app reads and writes the **capta-planner-data** directory; ensure that dir exists and is your data repo clone (see steps above).
+**Data flow:** Your edits in the UI are saved to **capta-planner-data/** (mounted at `/data`). The app reads and writes the **capta-planner-data** directory; ensure that dir exists and is your data repo clone (see steps above).
 
 ## Docs
 
