@@ -1,6 +1,6 @@
-# How AI should approach the task index
+# How to use the task index
 
-This document is the **entry point** for AI (e.g. Cursor) when working with tasks: **review**, **add new**, and **approach implementation**. Read it when you need to understand the purpose of `index.yaml`, how to refine tasks, how to link related files, and how to implement work from the index. For **creating new tickets** that add value and improve the app (and optionally implementation details), see **`TASK_ORIENTATION.md`**.
+This document is the **entry point** for working with tasks: **review**, **add new**, and **approach implementation**. Read it when you need to understand the purpose of `index.yaml`, how to refine tasks, how to link related files, and how to implement work from the index. For **creating new tickets** that add value and improve the app (and optionally implementation details), see **`TASK_ORIENTATION.md`**.
 
 ---
 
@@ -48,7 +48,7 @@ This document is the **entry point** for AI (e.g. Cursor) when working with task
 
 **Linking in the index:**
 
-- **`details`** — Set to `details/<id>-<slug>.md` so the task has a dedicated spec. AI and humans read this first when working on the task.
+- **`details`** — Set to `details/<id>-<slug>.md` so the task has a dedicated spec. Read this first when working on the task.
 - **`related`** — List of task IDs (e.g. `related: [2, 4]`). Open those details when implementing or refining this task.
 - **`appendix`** — Legacy refs (e.g. § 4, NEXT_STEPS_PLAN). Prefer `details` and `project` for new tasks.
 

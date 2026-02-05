@@ -21,8 +21,7 @@ data/tasks/
 # data/projects/capta-core/
 
 # Docker: local clone of your private planner data (mounted by compose)
-# This is a SEPARATE git repo that the sync service auto-commits to
 capta-planner-data/
 
-# Docker environment file (contains your git user info)
+# Docker environment file 
 .env

@@ -1,5 +1,5 @@
 # Sample task index — shareable demo data for capta-planner.
-# Schema: task-schema.json. See docs/README.md and docs/AI_TASK_INDEX_GUIDE.md.
+# Schema: task-schema.json. See docs/README.md and docs/TASK_INDEX_GUIDE.md.
 tasks:
   - id: 1
     title: Example task (todo)

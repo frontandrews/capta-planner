@@ -40,6 +40,6 @@ docker compose up -d
 
 - **`docs/DATA_ORGANIZATION.md`** — Shareable vs your data: sample in repo, your index gitignored, per-project layout.
 - **`docs/README.md`** — Task system overview, fields, workflow.
-- **`docs/AI_TASK_INDEX_GUIDE.md`** — Entry point for AI: how to approach the index (review, add, implement).
+- **`docs/TASK_INDEX_GUIDE.md`** — Entry point: how to approach the index (review, add, implement).
 - **`docs/TASK_ORIENTATION.md`** — Creating new tickets and details files.
 - **`docs/CLARITY_SCORE.md`** — clarity_score (0–100) and when to set it.
